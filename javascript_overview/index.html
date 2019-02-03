@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <script>
+        window.onload = () => {
+            document.getElementById('add').onclick = function () {
+                var a = document.getElementById("1st").value;
+                var b = document.getElementById("2nd").value;
+                document.getElementById("ans").value = parseInt(a) + parseInt(b);
+            }
+            // var i = (()=>{
+            //     let k = 10; //static /clouser
+            //     return ()=>{return k++;}
+            // })();
+            // alert(i());//10
+            // alert(i());//11
+            // alert(i());//12
+            // alert(i());//13
+        }
+
+
+    </script>
+    <!-- Inline -->
+    <!-- <input type="button" onclick="this.value='gopal'" id="add" value="+" /> -->
+    <!-- Internal -->
+    <script>
+        /*
+            var (Core JS)--Global , let (ES5)--Block Level
+            function
+            1)Build In
+            2)User Define
+                1)Function Expression
+                    function add([param]){code}
+                2)Anonymus Function
+                    function([param]){code}
+                3)Arrow / Lambda Function (ES5)
+                    ([param])=>{code} or ([param])=>code
+                4)Invoke Function
+                    (function(){})()
+                    or
+                    (function(){}())
+
+            Looping / Iterator
+                1)for(init;condition;step/counter){code}
+                2)while(condition){code}
+                3)do{code}while(condition)
+                4)Array.forEach(function(value,index){code})
+                5)for(var index in object){code}
+                6)for(var item of object){code}(ES5)
+                7)Array.map(function(value,index){code});(ES6)
+            Branching Statement / Conditional Statement
+                1)if(condition){code}
+                2)if(condition){code}else{code}
+                3)if(condition){code}else if(codition){code}else{code}
+                4)Nested If
+                5)switch(choice){
+                    case 1:
+                        code;
+                        break;
+                    case 2:
+                        code;
+                        break;
+                    case nth:
+                        code;
+                        break;
+                    default:
+                        code
+                }
+
+            Operators
+                1) Math (+ - / * %)
+                2) Conditional (> < >= <= == != === >== <== !==)
+                3) Assignment ( = )
+                4) Unery ( ++ --)
+                5) Turnery ( condition ? true : false)
+                6) Logical ( || && !)
+                7) Bitwise ( >> << & | ^ !)
+
+        */
+    </script>
+    <!-- External -->
+    <script src="cust.js"></script>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="1st" placeholder="Enter 1st Number" />
+        <input type="text" id="2nd" placeholder="Enter 2nd Number" />
+        <input type="text" id="ans" placeholder="Ans" />
+        <input type="button" id="add" value="+" />
+    </form>
+</body>
+
+</html>

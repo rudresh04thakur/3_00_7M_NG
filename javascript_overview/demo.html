@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+    <script>
+        window.onload = function () {
+            // key = ["name","age","contact"];
+            // value=[["Gopal",27,123],["Ganesh",32,345],["Mahesh",42,567]];
+            // json = {"employee":[]};
+            // json_temp = {}
+            // value.map((v)=>{
+            //     temp_json = {};
+            //     key.map((k,i)=>{
+            //         json_temp[k]=v[i];
+            //     });
+            //     json['employee'].push(json_temp);
+            // });
+            // console.log(json);
+
+            // var k = (function () {
+            //     i = 10;
+            //     return function() {
+            //         return ++i;
+            //     };
+            // })();
+
+
+
+            //     console.log(k);
+            //     console.log(k());
+            //     console.log(k());
+            //     console.log(k());
+            //     console.log(k());
+
+
+
+        }
+
+        function add(){
+            with(document){
+                var tr = createElement('tr');
+                var td_1 = createElement('td');
+                var td_2 = createElement('td');
+                var td_3 = createElement('td');
+                var td_4 = createElement('td');
+                var td_5 = createElement('td');
+
+
+                var input_1 = createElement('input');
+                input_1.setAttribute("placeholder", "Enter Name");
+                var input_2 = createElement('input');
+                input_2.setAttribute("placeholder", "Enter Age");
+                var input_3 = createElement('input');
+                input_3.setAttribute("placeholder", "Enter Mobile");
+                var input_4 = createElement('input');
+                input_4.placeholder= "Enter Mail";
+
+                var button_1 = createElement('button');
+                button_1.innerHTML = "-";
+                button_1.onclick = function(){
+                    this.parentNode.parentNode.remove();
+                }
+
+                td_1.appendChild(input_1);
+                td_2.appendChild(input_2);
+                td_3.appendChild(input_3);
+                td_4.appendChild(input_4);
+                td_5.appendChild(button_1);
+
+                tr.appendChild(td_1)
+                tr.appendChild(td_2)
+                tr.appendChild(td_3)
+                tr.appendChild(td_4)
+                tr.appendChild(td_5)
+
+                getElementById('tbody').appendChild(tr);
+
+            }
+        }
+
+        // function abc(op){
+        //     with(document){
+        //         var y = getElementById("1st").value;
+        //         var x = getElementById("2nd").value;
+        //         ganesh = {
+        //             "+":function(a,b){return a+b},
+        //             "-":function(a,b){return a-b},
+        //             "*":function(a,b){return a*b},
+        //             "/":function(a,b){return a/b},
+        //         }
+        //         getElementById('ans').value = ganesh[op]((x*1),(y*1));
+        //     }
+        // }
+    </script>
+</head>
+
+<body>
+    <!-- <input id="1st"><br>
+    <input id="2nd"><br>
+    <input id="ans"><br>
+    <select onchange="abc(this.value)">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select> <br>
+    -->
+    <input type="button" value="+" onclick="add()" />
+    <table>
+        <theah>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </theah>
+        <tbody id="tbody">
+            <tr>
+                <td><input name="name" placeholder="Enter Name" /></td>
+                <td><input name="age" placeholder="Enter Age" /></td>
+                <td><input name="contact" placeholder="Enter Mobile" /></td>
+                <td><input name="mail" placeholder="Enter Mail" /></td>
+                <td><input type="button" value="-" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

@@ -7,12 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <script>
-        window.onload = () => {
-            document.getElementById('add').onclick = function () {
+        window.onload = ()=> {
+            document.getElementById('cal').onclick = function () {
                 var a = document.getElementById("1st").value;
                 var b = document.getElementById("2nd").value;
                 document.getElementById("ans").value = parseInt(a) + parseInt(b);
             }
+
+            // document.getElementById('cal').onclick = function(){
+            //     document.getElementById('ans').value = eval(document.getElementById("1st").value);
+            // }
+
+            // a = ["Gopal","Ganesh",23,43]
+            // for(var i of a){
+            //     alert(i)
+            // };
+
+
             // var i = (()=>{
             //     let k = 10; //static /clouser
             //     return ()=>{return k++;}
@@ -78,11 +89,10 @@
                 5) Turnery ( condition ? true : false)
                 6) Logical ( || && !)
                 7) Bitwise ( >> << & | ^ !)
-
         */
     </script>
     <!-- External -->
-    <script src="cust.js"></script>
+    <!-- <script src="cust.js"></script> -->
 </head>
 
 <body>
@@ -90,8 +100,12 @@
         <input type="text" id="1st" placeholder="Enter 1st Number" />
         <input type="text" id="2nd" placeholder="Enter 2nd Number" />
         <input type="text" id="ans" placeholder="Ans" />
-        <input type="button" id="add" value="+" />
+        <!-- <input type="button" id="add" value="+" /> -->
+        <input type="button" id="cal" value="calculate" />
     </form>
+
+
+    
     <button id='rAdd'>Add Row</button>
     <table>
         <thead>

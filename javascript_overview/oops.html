@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Oops</title>
+    <script type="text/javascript">
+      function Employee(){}  // constructor and class it self
+      Employee.prototype.eid = 0;
+      Employee.prototype.name = "Gopal";
+      Employee.prototype.age = 27;
+      Employee.prototype.contact = 8983929346;
+      Employee.prototype.print_e = function(){
+          console.log(Employee.prototype.eid,Employee.prototype.name,
+          Employee.prototype.age,Employee.prototype.contact);
+      };
+
+      Company.prototype = Object.create(Employee.prototype);
+      function Company(){}
+      //Company.prototype = Employee.prototype;
+
+      Company.prototype.year = 2014;
+      Company.prototype.name = "GBT";
+      Company.prototype.employes = 20;
+      Company.prototype.contact = 0220232343;
+      Company.prototype.print = function(){
+          console.log(Company.prototype.year,Company.prototype.name,
+          Company.prototype.employes,Company.prototype.contact);
+      };
+
+      window.onload = function(){
+          var c = new Company(); //constructor call and oject creation
+          c.print_e();
+          c.print();
+      }
+
+    //   function MyConstructor(data, transport) {
+    //     this.data = data;
+    //     alert(this.data); //name
+    //     transport.on("data", function() {
+    //         alert(this.data); //undefined
+    //     });
+    //   }
+
+    //   // Mock transport object
+    //   var transport = {
+    //     on: function(event, callback) {
+    //       setTimeout(callback, 1000);
+    //     }
+    //   };
+
+    //   // called as
+    //   var obj = new MyConstructor("gopal", transport);
+    </script>
+  </head>
+  <body></body>
+</html>

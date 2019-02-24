@@ -39,7 +39,7 @@
 
 
         }
-
+        counter = 1;
         function add(){
             with(document){
                 var tr = createElement('tr');
@@ -52,12 +52,16 @@
 
                 var input_1 = createElement('input');
                 input_1.setAttribute("placeholder", "Enter Name");
+                input_1.name = "name_"+counter;
                 var input_2 = createElement('input');
                 input_2.setAttribute("placeholder", "Enter Age");
+                input_2.name = "age_"+counter;
                 var input_3 = createElement('input');
                 input_3.setAttribute("placeholder", "Enter Mobile");
+                input_3.name = "contact_"+counter;
                 var input_4 = createElement('input');
                 input_4.placeholder= "Enter Mail";
+                input_4.name = "mail_"+counter++;
 
                 var button_1 = createElement('button');
                 button_1.innerHTML = "-";
@@ -95,6 +99,34 @@
         //         getElementById('ans').value = ganesh[op]((x*1),(y*1));
         //     }
         // }
+
+
+        //AJAX --> Asyncronius Javascript And XML 
+        function save(){  
+            var collection_1 = document.querySelector('#form').getElementsByTagName('input'); 
+            data = "";
+            for(var element of collection_1){
+                data += element.name+"="+element.value+'&';
+            }  
+            console.log(data);
+                    
+            if(XMLHttpRequest){
+                var http = new XMLHttpRequest();
+            }else{
+                var http = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            http.open("post","http://localhost/ajax/insert.php");
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send(data);
+            http.onreadystatechange = function(){
+                if(http.readyState==4 && http.status ==200){
+                    document.querySelector('#data').innerHTML = "<pre>"+http.responseText+"</pre>"
+                    //document.getElementById('data').innerHTML = "<pre>"+http.responseText+"</pre>"
+                }
+            }
+        }
+
+
     </script>
 </head>
 
@@ -110,6 +142,7 @@
     </select> <br>
     -->
     <input type="button" value="+" onclick="add()" />
+    <form id="form">
     <table>
         <theah>
             <tr>
@@ -130,6 +163,9 @@
             </tr>
         </tbody>
     </table>
+    <button onclick="save()" type="button">Save</button>
+</form>
+    <div id='data'></div>
 
 </body>
 

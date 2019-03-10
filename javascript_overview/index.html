@@ -8,11 +8,24 @@
     <title>Home</title>
     <script>
         window.onload = ()=> {
-            document.getElementById('cal').onclick = function () {
-                var a = document.getElementById("1st").value;
-                var b = document.getElementById("2nd").value;
-                document.getElementById("ans").value = parseInt(a) + parseInt(b);
-            }
+            // document.getElementById('cal').onclick = function () {
+            //     var a = document.getElementById("1st").value;
+            //     var b = document.getElementById("2nd").value;
+            //     document.getElementById("ans").value = parseInt(a) + parseInt(b);
+            // }
+
+            // emp = ["Gopal",27,"123"]
+            // // emp.map(
+            // //     (value,index)=>{
+            // //         alert(value+ " ===> "+ index);
+            // //         }
+            // // )
+
+            // for(var i of emp){
+            //     alert(i)
+            // }
+
+
 
             // document.getElementById('cal').onclick = function(){
             //     document.getElementById('ans').value = eval(document.getElementById("1st").value);
@@ -24,14 +37,14 @@
             // };
 
 
-            // var i = (()=>{
-            //     let k = 10; //static /clouser
-            //     return ()=>{return k++;}
-            // })();
-            // alert(i());//10
-            // alert(i());//11
-            // alert(i());//12
-            // alert(i());//13
+            var i = (function(){
+                let k = 10; //static /clouser
+                return function(){return k++;}
+            })();
+            alert(i());//10
+            alert(i());//11
+            alert(i());//12
+            alert(i());//13
         }
     </script>
     <!-- Inline -->
@@ -50,9 +63,9 @@
                 3)Arrow / Lambda Function (ES5)
                     ([param])=>{code} or ([param])=>code
                 4)Invoke Function
-                    (function(){})()
+                    (function([param]){code})(args)
                     or
-                    (function(){}())
+                    (function([param]){code}(args))
 
             Looping / Iterator
                 1)for(init;condition;step/counter){code}

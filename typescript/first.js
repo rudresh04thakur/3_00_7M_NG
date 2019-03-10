@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var Employee = /** @class */ (function () {
+    //j:[Number,String]=[0,"Gopal"]
     function Employee() {
         this.id = 0;
         this.name = "Gopal";
@@ -23,18 +24,48 @@ var Employee = /** @class */ (function () {
     };
     return Employee;
 }());
+var demo1 = /** @class */ (function () {
+    function demo1() {
+        this.counter1 = 10;
+    }
+    return demo1;
+}());
 var Company = /** @class */ (function (_super) {
     __extends(Company, _super);
     function Company() {
         var _this = _super.call(this) || this;
         _this.year = 2014;
         _this.name = "GBT";
-        _this.employees = "20";
+        _this.employees = 20;
         _this.contact = 321;
         return _this;
     }
     Company.prototype.print = function () {
+        _super.prototype.print.call(this);
         console.log(this.year, this.name, this.employees, this.contact);
     };
     return Company;
 }(Employee));
+var BankAccount = /** @class */ (function (_super) {
+    __extends(BankAccount, _super);
+    function BankAccount() {
+        var _this = _super.call(this) || this;
+        //[account:Number,bank:String] = [324234321232,"Union"];
+        _this.account = 5444444444444443;
+        _this.counter1 = 20;
+        _this.bank = "Union Bank";
+        return _this;
+    }
+    BankAccount.prototype.demo1 = function () {
+        console.log(this.counter1);
+    };
+    BankAccount.prototype.print = function () {
+        _super.prototype.print.call(this);
+        console.log(this.account, this.bank);
+    };
+    return BankAccount;
+}(Company));
+var a = new BankAccount();
+a.print();
+//tuple
+//spread

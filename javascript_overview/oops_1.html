@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Oops _1</title>
+    <script>
+      function Employee() {
+        //It is constructor and class
+      }
+
+      Employee.prototype.name = "Rudresh";
+      Employee.prototype.age = 27;
+
+      Employee.prototype.print = function() {
+        console.log(Employee.prototype.name);
+        console.log(Employee.prototype.age);
+      };
+
+      Account.prototype = Object.create(Employee.prototype) //inheritance
+
+      function Account() {
+        //It is constructor and class
+      }
+
+      Account.prototype.bankName = "Union Bank";
+      Account.prototype.acno = 121212121;
+      Account.prototype.b_print = function() {
+        console.log(Account.prototype.bankName);
+        console.log(Account.prototype.acno);
+      };
+      window.onload = function() {
+        var a = new Account();
+        a.print();
+        a.b_print();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

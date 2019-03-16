@@ -6,7 +6,7 @@ import { RegisterComponent } from './register/register.component'
 import { NotfoundComponent } from './notfound/notfound.component'
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  //{path:'',component:HomeComponent},
   {path:'',redirectTo:'home',pathMatch:"full"},
   {path:"login" ,component:LoginComponent},
   {path:"register" ,component:RegisterComponent},

@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 
 import{ Routes,RouterModule } from '@angular/router'
 import { NotfoundComponent } from './notfound/notfound.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+
 
 // const routes:Routes = [
 //   //{path:'',component:HomeComponent},
@@ -35,7 +37,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //RouterModule.forRoot(routes)
+    //RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,33 @@
-<p>
-  login works!
-</p>
+<div class="container-fluid">
+  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" class="form col-6 offset-3">
+    <div class="alert alert-danger" *ngIf="str!=''">
+      {{str}}
+    </div>
+    <div class="form-group">
+      <label for="fullname">Email</label>
+      <input name="email" [formControl]="loginForm.controls['email']" type="email" class="form-control"/>
+      <div class="alert alert-danger" *ngIf="loginForm.controls['email'].hasError('required') && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" >
+          This field is required.
+        </div>
+        <div class="alert alert-danger" *ngIf="loginForm.controls['email'].hasError('pattern') && loginForm.controls['email'].touched" >
+            Invalid Email.
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="fullname">Password</label>
+      <div class="input-group">
+      <input id="pwd" name="password" [formControl]="loginForm.controls['password']" type="password" class="form-control" />
+      <div (click)="show()" class="input-group-append">
+          <span class="input-group-text">
+            <i id="icon" class="fa fa-eye"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group text-right">
+      <button class="btn btn-danger" type="reset">Reset</button>&nbsp;&nbsp;
+      <button class="btn btn-success" type="submit">Login</button>
+    </div>
+  </form>
+  <div class="clearfix"></div>
+</div>

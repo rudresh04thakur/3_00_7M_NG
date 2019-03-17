@@ -11,7 +11,8 @@ export class RegisterComponent implements OnInit {
     fullname: "",
     email: "",
     mobile: "8181851703",
-    password: ""
+    password: "",
+    //cpassword:''
   };
   constructor() {}
 
@@ -32,4 +33,16 @@ export class RegisterComponent implements OnInit {
        $('#icon').addClass("fa-eye");
      }
   }
+  // show2() {
+  //   //console.log($(this));
+  //    if ($('#icon_1').hasClass("fa-eye")) {
+  //      $("#pwd_1").attr("type", "text");
+  //      $('#icon_1').removeClass("fa-eye");
+  //      $('#icon_1').addClass("fa-eye-slash")
+  //    } else {
+  //      $("#pwd_1").attr("type", "password");
+  //      $('#icon_1').removeClass("fa-eye-slash")
+  //      $('#icon_1').addClass("fa-eye");
+  //    }
+  // }
 }

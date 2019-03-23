@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import * as $ from "jquery";
-
+import {AllService} from '../all.service'
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
@@ -14,12 +14,15 @@ export class RegisterComponent implements OnInit {
     password: "",
     //cpassword:''
   };
-  constructor() {}
+  constructor(private _ser:AllService) {}
 
   ngOnInit() {}
 
   register(data) {
-    console.log(data);
+    this._ser.register(data).subscribe((res)=>{
+      console.log(res);
+    })
+    //console.log(data);
   }
   show() {
     //console.log($(this));

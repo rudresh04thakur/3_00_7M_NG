@@ -9,6 +9,8 @@ import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AllService } from './all.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import{ Routes,RouterModule } from '@angular/router'
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -39,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     AppRoutingModule,
     //RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

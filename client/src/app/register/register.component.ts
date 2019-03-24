@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import * as $ from "jquery";
 import {AllService} from '../all.service'
+//import {Md5} from 'ts-md5/dist/md5';
+import { environment } from '../../environments/environment'
+
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
@@ -14,15 +17,23 @@ export class RegisterComponent implements OnInit {
     password: "",
     //cpassword:''
   };
+  //md5 = new Md5();
   constructor(private _ser:AllService) {}
 
   ngOnInit() {}
 
   register(data) {
-    this._ser.register(data).subscribe((res)=>{
+    let pwd = this.hash(data['password'],environment.salt);
+    let tempData = {
+      'fullname':data.fullname,
+      'email':data.email,
+      'mobile':data.mobile,
+      'password': pwd}
+    this._ser.register(tempData).subscribe((res)=>{
       console.log(res);
+      data.reset();
     })
-    //console.log(data);
+
   }
   show() {
     //console.log($(this));
@@ -48,4 +59,18 @@ export class RegisterComponent implements OnInit {
   //      $('#icon_1').addClass("fa-eye");
   //    }
   // }
+
+
+  hash(value:string,key:string){
+    let str = "";
+    let j=0;
+    for(let i= 0 ; i<value.length;i++){
+      if(i>key.length){
+        j=0
+      }
+      str +=value[i]+key[j++]
+    }
+    return str;  // anil1234 gopal04thakur
+    //agnoipla1l
+  }
 }

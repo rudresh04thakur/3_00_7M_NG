@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators ,ValidationErrors, FormControl } from '@angular/forms';
 import * as $ from 'jquery';
+import { AllService } from '../all.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,11 +11,11 @@ import * as $ from 'jquery';
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
-  constructor(private _fb:FormBuilder) {
+  constructor(private _fb:FormBuilder, private _ser:AllService, private _r:Router) {
     //var email = new FormControl('',Validators.required)
     this.loginForm = this._fb.group({
-      email:['gopal04thakur@gmail.com',[Validators.required,Validators.pattern("[a-zA-Z0-9_]{3,}[@]{1}[a-zA-Z0-9]{2,}[.]{1}[a-zA-Z]{2,}")]],
-      password:['123456789',[Validators.required, Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")]]
+      email:['admin@admin.com',[Validators.required,Validators.pattern("[a-zA-Z0-9_]{3,}[@]{1}[a-zA-Z0-9]{2,}[.]{1}[a-zA-Z]{2,}")]],
+      password:['Gop@l123',[Validators.required, Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")]]
     })
   }
 
@@ -21,9 +23,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(data){
-    if(this.getFormValidationErrors()){
-      console.log(data);
-    }
+    // if(this.getFormValidationErrors()){
+    //   console.log(data);
+    // }
+    this._ser.login(data).subscribe((res)=>{
+      if(res['error']=="")
+        localStorage.setItem("sessionId",res['sessionId'])
+        this._r.navigate(['/home']);
+    })
+
+    this._ser.heartBit().subscribe((res)=>{
+      console.log(res)
+    })
   }
 
   str ="";

@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit ,Input} from "@angular/core";
 import * as $ from "jquery";
 import {AllService} from '../all.service'
+import {Router} from '@angular/router'
 //import {Md5} from 'ts-md5/dist/md5';
 import { environment } from '../../environments/environment'
 
@@ -10,6 +11,7 @@ import { environment } from '../../environments/environment'
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
+  @Input('data') data:any;
   regName = {
     fullname: "",
     email: "",
@@ -18,9 +20,11 @@ export class RegisterComponent implements OnInit {
     //cpassword:''
   };
   //md5 = new Md5();
-  constructor(private _ser:AllService) {}
+  constructor(private _ser:AllService, private _r:Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.regName = this.data;
+  }
 
   register(data) {
     let pwd = this.hash(data['password'],environment.salt);
@@ -31,7 +35,11 @@ export class RegisterComponent implements OnInit {
       'password': pwd}
     this._ser.register(tempData).subscribe((res)=>{
       console.log(res);
-      data.reset();
+      //data.reset();
+      if(res['class']=="success")
+      {
+        this._r.navigate(['/home']);
+      }
     })
 
   }

@@ -14,7 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import{ Routes,RouterModule } from '@angular/router'
 import { NotfoundComponent } from './notfound/notfound.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { KeysPipe } from './keys.pipe';
+import { ViewComponent } from './view/view.component'
 
 
 // const routes:Routes = [
@@ -34,7 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    KeysPipe,
+    ViewComponent
   ],
   imports: [
     BrowserModule,

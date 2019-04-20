@@ -1,0 +1,6 @@
+<div class="form col-6 offset-3">
+  <div class="form-group" *ngFor="let i of demoJson | keys">
+    <label>{{i['key']}}</label>
+    <div class="form-control">{{i['value']}}</div>
+  </div>
+</div>

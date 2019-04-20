@@ -28,6 +28,12 @@ export class AllService {
      }));
    }
 
+   getUsers(){
+    return  this._http.post('http://localhost/client_api_5/getUsers.php',null, httpOptions).pipe(map((res)=>{
+       return res;
+     }));
+   }
+
 
 
   logout(data){
@@ -41,4 +47,23 @@ export class AllService {
        return res;
      }));
    }
+
+   delete(id){
+     return this._http.get("http://localhost/client_api_5/delete.php?id="+id).pipe(map((res)=>{
+       return res;
+     }))
+   }
+
+   getUser(id){
+    return this._http.get("http://localhost/client_api_5/getUser.php?id="+id).pipe(map((res)=>{
+      return res;
+    }))
+  }
+
+  update(data){
+    return  this._http.post('http://localhost/client_api_5/update.php',data).pipe(map((res)=>{
+      return res;
+    }));
+  }
+
 }
